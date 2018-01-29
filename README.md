@@ -11,7 +11,7 @@ Step 3: `cp .env.example .env` then edit `APP_NAME, APP_URL, DB_CONNECTION, DB_H
 Step 4: `cd <project-path>/laradock`<br>
 	``cp env-example .env` then change `APPLICATION=../` to `APPLICATION=../application`<br>
 
-Step 5: `docker-compose up -d nginx mysql`<br>
+Step 5: `docker-compose up -d apache2 mysql`<br>
 
 Step 6:<br>
 `docker exec -it laradock_mysql_1 bash`<br>
