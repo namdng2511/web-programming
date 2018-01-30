@@ -8,6 +8,15 @@ Step 2: `cd <project-path>/application`<br>
 
 Step 3: `cp .env.example .env` then edit `APP_NAME, APP_URL, DB_CONNECTION, DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD` config<br>
 
+`
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=test
+DB_USERNAME=root
+DB_PASSWORD=root
+`
+
 Step 4: `cd <project-path>/laradock`<br>
 	``cp env-example .env` then change `APPLICATION=../` to `APPLICATION=../application`<br>
 
@@ -16,7 +25,7 @@ Step 5: `docker-compose up -d apache2 mysql`<br>
 Step 6:<br>
 `docker exec -it laradock_mysql_1 bash`<br>
 `mysql -u'root' -p'root'`<br>
-`CREATE DATABASE library;`<br>
+`CREATE DATABASE test;`<br>
 `exit`<br>
 `exit`<br>
 
