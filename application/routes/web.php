@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('posts', 'PostController');
+
+Route::get('/phpinfo', function () {
+    return view('phpinfo');
+});
