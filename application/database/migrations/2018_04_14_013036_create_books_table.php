@@ -1,7 +1,10 @@
 <?php
+
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-class CreatePostsTable extends Migration
+
+class CreateBooksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -10,13 +13,18 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('books', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('book_number')->unique()->nullable();
             $table->string('title');
-            $table->text('body');
+            $table->string('publisher');
+            $table->string('authors');
+            $table->string('category');
+            $table->string('isbn')->unique();
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -24,6 +32,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('posts');
+        Schema::dropIfExists('books');
     }
 }
