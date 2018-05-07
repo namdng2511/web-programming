@@ -29,6 +29,7 @@ class IssueCardController extends Controller
 
     public function create()
     {
+        
         return view('issue-card.search-user');
     }
 
