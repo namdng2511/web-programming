@@ -20,3 +20,13 @@ Route::resource('posts', 'PostController');
 Route::get('/phpinfo', function () {
     return view('phpinfo');
 });
+
+/*
+ * Login and Logout pages
+ */
+Auth::routes();
+//Route::get('/login', 'Auth\LoginController@showLoginForm')->name("login");
+//Route::post('/login', 'Auth\LoginController@login');
+//Route::post('/logout', 'Auth\LoginController@logout')->name("logout");
+//Route::get('/register', 'Auth\RegisterController@showRegisterForm')->name("register");
+//Route::post('/register', 'Auth\RegisterController@register');
