@@ -27,7 +27,7 @@ Step 5: `docker-compose up -d nginx mysql`<br>
 Step 6:<br>
 `docker exec -it laradock_mysql_1 bash`<br>
 `mysql -u'root' -p'root'`<br>
-`CREATE DATABASE test;`<br>
+`CREATE DATABASE library;`<br>
 `exit`<br>
 `exit`<br>
 
