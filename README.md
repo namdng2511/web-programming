@@ -12,7 +12,7 @@ Step 3: `cp .env.example .env` then edit `APP_NAME, APP_URL, DB_CONNECTION, DB_H
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
-DB_DATABASE=test
+DB_DATABASE=library
 DB_USERNAME=root
 DB_PASSWORD=root
 
