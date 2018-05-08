@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'full_name', 'gender', 'contact', 'is_student', 'student_id', 'expired_at',
     ];
 
     /**
@@ -67,6 +67,11 @@ class User extends Authenticatable
         return $this->where('name', $username)->first();
     }
 
+    public function getUserByUserID($userID)
+    {
+        return $this->where('id', $userID)->first();
+    }
+
     /**
      * Get active card number
      * @return mixed|null
@@ -78,5 +83,21 @@ class User extends Authenticatable
         }
 
         return $this->getActiveBorrowCard()->getAttribute('card_number');
+    }
+
+    public function borrowRecords()
+    {
+        return $this->hasMany('App\BorrowRecord');
+    }
+
+    public function hasOverDueBorrow()
+    {
+        foreach ($this->getAttribute('borrowRecords') as $record) {
+            if ($record->isOverDue()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

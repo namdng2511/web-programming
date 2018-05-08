@@ -1,3 +1,2 @@
 <hr>
-
-<p class="text-center">Copyright Group 2 ICT K59 - All Rights Reserved</p>
+<p class="text-center">Copyright WebProgramming 20172 - Group2 - All Rights Reserved</p>
