@@ -1,8 +1,11 @@
 <?php
+
 namespace App;
+
 use DateTime;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+
 class BorrowCard extends Model
 {
     /**
@@ -12,7 +15,9 @@ class BorrowCard extends Model
     {
         return $this->belongsTo('App\User');
     }
+
     protected $table = 'borrow_cards';
+
     /**
      * Retrieve the borrow card that have the card number in the database
      * @param $cardNumber
@@ -22,6 +27,7 @@ class BorrowCard extends Model
     {
         return $this->where('card_number', $cardNumber)->first();
     }
+
     /**
      * Check the borrowing card belongs to the current user
      * @param $userID
@@ -31,6 +37,7 @@ class BorrowCard extends Model
     {
         return $this->getAttribute('user')->getAttribute('id') == $userID;
     }
+
     /**
      * Check if the borrow card is expired
      * @return boolean
@@ -39,6 +46,7 @@ class BorrowCard extends Model
     {
         return new DateTime($this->getAttribute('expired_date')) > new DateTime();
     }
+
     public function createNewBorrowCard($userID){
         $this->setAttribute('card_number', self::generateBorrowCardNumber())
             ->setAttribute('user_id', $userID)
@@ -48,14 +56,17 @@ class BorrowCard extends Model
         
         $this->save();
     }
+
     private function generateBorrowCardNumber() {
         $noOfBorrowCard = $this->count();
         $sequenceNumber = $noOfBorrowCard + 1;
         return str_pad($sequenceNumber , 4, "0", STR_PAD_LEFT );
     }
+
     private function generateRandomActivationCode($length = 10) {
         return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $length);
     }
+
     public function isActivated()
     {
         return $this->getAttribute('is_activated');
